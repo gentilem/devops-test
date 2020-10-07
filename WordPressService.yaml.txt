@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/targetWorkloadIds: '["deployment:wordpress:wordpress"]'
+    workload.cattle.io/targetWorkloadIdNoop: "true"
+    workload.cattle.io/workloadPortBased: "true"
+  creationTimestamp: "2020-09-29T10:34:23Z"
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/targetWorkloadIds: {}
+          f:workload.cattle.io/targetWorkloadIdNoop: {}
+          f:workload.cattle.io/workloadPortBased: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"a141298c-471a-4507-9efb-c624b1e7994a"}:
+            .: {}
+            f:apiVersion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:clusterIP: {}
+        f:ports:
+          .: {}
+          k:{"port":42,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:workload.user.cattle.io/workloadselector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-09-29T10:34:23Z"
+  name: wordpress
+  namespace: wordpress
+  ownerReferences:
+  - apiVersion: apps/v1beta2
+    controller: true
+    kind: deployment
+    name: wordpress
+    uid: a141298c-471a-4507-9efb-c624b1e7994a
+  resourceVersion: "318158"
+  selfLink: /api/v1/namespaces/wordpress/services/wordpress
+  uid: 2067d496-d33f-4dbc-8503-331e95b1a2be
+spec:
+  clusterIP: None
+  ports:
+  - name: default
+    port: 42
+    protocol: TCP
+    targetPort: 42
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-wordpress-wordpress
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

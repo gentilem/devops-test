@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: '["deployment:wordpress:mysql"]'
+    workload.cattle.io/targetWorkloadIdNoop: "true"
+    workload.cattle.io/workloadPortBased: "true"
+  creationTimestamp: "2020-09-29T11:55:42Z"
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/ipAddresses: {}
+          f:field.cattle.io/targetDnsRecordIds: {}
+          f:field.cattle.io/targetWorkloadIds: {}
+          f:workload.cattle.io/targetWorkloadIdNoop: {}
+          f:workload.cattle.io/workloadPortBased: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"a0e3c149-0e05-4455-ad64-54c87aae42d5"}:
+            .: {}
+            f:apiVersion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:clusterIP: {}
+        f:ports:
+          .: {}
+          k:{"port":42,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:workload.user.cattle.io/workloadselector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-09-29T11:56:00Z"
+  name: mysql
+  namespace: wordpress
+  ownerReferences:
+  - apiVersion: apps/v1beta2
+    controller: true
+    kind: deployment
+    name: mysql
+    uid: a0e3c149-0e05-4455-ad64-54c87aae42d5
+  resourceVersion: "331534"
+  selfLink: /api/v1/namespaces/wordpress/services/mysql
+  uid: b57f161e-7fed-479d-9345-cf3766069edb
+spec:
+  clusterIP: None
+  ports:
+  - name: default
+    port: 42
+    protocol: TCP
+    targetPort: 42
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-wordpress-mysql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

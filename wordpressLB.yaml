@@ -1,0 +1,68 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: u-ebloem2fm5
+    field.cattle.io/ingressState: '{"":"wordpress:","d29yZHByZXNzL3dvcmRwcmVzcy9kZXZvcHMubGFiLm5ldHNydmNzLmNvbS8vd29yZHByZXNzLzgw":"deployment:wordpress:wordpress"}'
+    field.cattle.io/publicEndpoints: '[{"addresses":["3.237.64.65"],"port":80,"protocol":"HTTP","serviceName":"wordpress:ingress-d805ea1f32e027cc62e05a0bb236479f","ingressName":"wordpress:wordpress","hostname":"devops.lab.netsrvcs.com","path":"/wordpress","allNodes":true}]'
+    rancher.io/globalDNS.hostname: devops.lab.netsrvcs.com
+  creationTimestamp: "2020-09-29T10:39:33Z"
+  generation: 15
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: extensions/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/creatorId: {}
+          f:field.cattle.io/ingressState: {}
+          f:field.cattle.io/publicEndpoints: {}
+          f:rancher.io/globalDNS.hostname: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+      f:spec:
+        f:rules: {}
+        f:tls: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-09-29T12:58:27Z"
+  - apiVersion: networking.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: nginx-ingress-controller
+    operation: Update
+    time: "2020-10-05T20:07:27Z"
+  name: wordpress
+  namespace: wordpress
+  resourceVersion: "1712620"
+  selfLink: /apis/extensions/v1beta1/namespaces/wordpress/ingresses/wordpress
+  uid: 182bf0f3-5646-4164-bc6b-fc5789ac86c4
+spec:
+  rules:
+  - host: devops.lab.netsrvcs.com
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-d805ea1f32e027cc62e05a0bb236479f
+          servicePort: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - k8dosv01a.lab.netsrvcs.com
+    - k8dosv02a.lab.netsrvcs.com
+    - k8dosv01b.lab.netsrvcs.com
+status:
+  loadBalancer:
+    ingress:
+    - ip: 3.237.64.65
+    - ip: 34.207.174.102
+    - ip: 52.55.109.158
+    - ip: 54.198.202.219
