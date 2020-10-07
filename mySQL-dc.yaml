@@ -125,7 +125,7 @@ metadata:
   namespace: wordpress
   resourceVersion: "331492"
   selfLink: /apis/apps/v1/namespaces/wordpress/deployments/mysql
-  uid: a0e3c149-0e05-4455-ad64-54c87aae42d5
+  uid: "a0e3c149-0e05-4455-ad64-54c87aae42d5"
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
